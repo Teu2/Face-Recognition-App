@@ -1,0 +1,59 @@
+#navigation_parent_div{
+    z-index: 10;
+    // background-color: white;
+    backdrop-filter: blur(5px);
+    border-radius: 10em;
+
+    nav{
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        // border-radius: 8px;
+        // margin-top: -1em;
+    }
+}
+
+
+#top_nav{
+    padding: 0.5px 5px;
+    background-color: #195aff;
+    text-align: left;
+    
+    p{
+        color: rgb(255, 255, 255);
+        font-weight: 10px;
+        font-size: 13px;
+        padding-left: 4.5em;
+    }
+}
+
+#signin_Button{
+    font-size: 1.05em;
+    padding: 1em 1.5em 1.1em 1.5em;
+    margin-right: 2em;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s ease; // smooth transition when hovering
+    border: 1px solid gray;
+    
+    &:hover{
+        color: gray;
+        cursor: pointer;
+    }
+}
+
+#logo{
+    padding-left: 2.5em;
+    cursor: help;
+}
+
+#signout_Button{
+    font-size: 1.05em;
+    padding: 1em 1.5em 1.1em 1.5em;
+    margin-right: 2em;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s ease; // smooth transition when hovering
+    &:hover{
+        color: gray;
+        cursor: pointer;
+    }
+}

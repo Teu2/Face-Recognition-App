@@ -1,0 +1,38 @@
+#input_form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10em;
+}
+#input_form #center_box {
+  width: 50%;
+}
+#input_form p {
+  font-weight: bold;
+}
+#input_form #input_box {
+  padding: 4em 5em;
+  background-color: rgba(255, 255, 255, 0.289);
+  border-left: 5px solid #195aff;
+  width: 40%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+#input_form #input_box #analyse_text {
+  width: 70%;
+}
+#input_form #analyse_button {
+  background-color: #231f20;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5em 2em;
+  margin-left: 1em;
+  transition: 0.3s ease;
+  border: 1px solid #231f20;
+}
+#input_form #analyse_button:hover {
+  background-color: #195aff;
+  border: 1px solid #195aff;
+  cursor: pointer;
+}/*# sourceMappingURL=ImageLinkForms.css.map */

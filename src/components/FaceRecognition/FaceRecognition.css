@@ -1,0 +1,17 @@
+.parentbox {
+  position: absolute;
+}
+
+#inputttimage {
+  width: 500px;
+  height: auto;
+}
+
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #149df2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+}/*# sourceMappingURL=FaceRecognition.css.map */
