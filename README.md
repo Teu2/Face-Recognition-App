@@ -1,4 +1,4 @@
-# Clarifai face detection model
+# Clarifai Face Detection Model
 
 This project was created implementing the face detection model trained by Clarifai using React. API keys are not included in this repository.
 
