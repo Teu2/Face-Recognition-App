@@ -1,0 +1,163 @@
+.sign-in-form {
+  margin-top: 10em;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(149, 101, 101, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-right: 17px;
+  border-left: 100px solid #195aff;
+}
+.sign-in-form .center {
+  display: flex;
+  justify-content: center;
+}
+.sign-in-form .ba {
+  border-style: solid;
+  border-width: 1px;
+}
+.sign-in-form .b--black {
+  border-color: #000;
+}
+.sign-in-form .b--transparent {
+  border-color: transparent;
+}
+.sign-in-form .db {
+  display: block;
+}
+.sign-in-form .dib {
+  display: inline-block;
+}
+.sign-in-form .b {
+  font-weight: bold;
+}
+.sign-in-form .fw6 {
+  font-weight: 600;
+}
+.sign-in-form .input-reset {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.sign-in-form .input-reset::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.sign-in-form .lh-copy {
+  line-height: 1.5;
+}
+.sign-in-form .link {
+  text-decoration: none;
+  transition: color 0.15s ease-in;
+}
+.sign-in-form .link:link, .sign-in-form .link:visited {
+  transition: color 0.15s ease-in;
+}
+.sign-in-form .link:hover {
+  transition: color 0.15s ease-in;
+}
+.sign-in-form .link:active {
+  transition: color 0.15s ease-in;
+}
+.sign-in-form .link:focus {
+  transition: color 0.15s ease-in;
+  outline: 1px dotted currentColor;
+}
+.sign-in-form .w-100 {
+  width: 100%;
+}
+.sign-in-form .black-80 {
+  color: rgba(0, 0, 0, 0.8);
+}
+.sign-in-form .black {
+  color: #000;
+}
+.sign-in-form .bg-transparent {
+  background-color: transparent;
+}
+.sign-in-form .hover-white:hover {
+  color: #fff;
+}
+.sign-in-form .hover-white:focus {
+  color: #fff;
+}
+.sign-in-form .hover-bg-black:hover {
+  background-color: #000;
+}
+.sign-in-form .hover-bg-black:focus {
+  background-color: #000;
+}
+.sign-in-form .pa0 {
+  padding: 0;
+}
+.sign-in-form .pa2 {
+  padding: 0.5rem;
+}
+.sign-in-form .pa4 {
+  padding: 2rem;
+}
+.sign-in-form .pv2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.sign-in-form .ph0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.sign-in-form .ph3 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.sign-in-form .ma0 {
+  margin: 0;
+}
+.sign-in-form .mt3 {
+  margin-top: 1rem;
+}
+.sign-in-form .mv3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.sign-in-form .mh0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.sign-in-form .f4 {
+  font-size: 1.25rem;
+}
+.sign-in-form .f6 {
+  font-size: 0.875rem;
+}
+.sign-in-form .measure {
+  max-width: 30em;
+}
+.sign-in-form .dim {
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
+}
+.sign-in-form .dim:hover, .sign-in-form .dim:focus {
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in;
+}
+.sign-in-form .dim:active {
+  opacity: 0.8;
+  transition: opacity 0.15s ease-out;
+}
+.sign-in-form .grow {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+.sign-in-form .grow:hover, .sign-in-form .grow:focus {
+  transform: scale(1.05);
+}
+.sign-in-form .grow:active {
+  transform: scale(0.9);
+}
+.sign-in-form .pointer:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=SignIn.css.map */
