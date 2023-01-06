@@ -7,21 +7,22 @@ import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignIn/SignUp'
 import Particles from './components/Particles/Particles'
 
-// didn't include tokens for security reasons, but you can replace them if you want
-const USER_ID = ''; 
-const PAT = ''; // Your PAT (Personal Access Token) can be found in the portal under Authentification
-const APP_ID = ''; // Change these to whatever model and image input you want to use
+
+const USER_ID = 'teud100'; 
+const PAT = '4c000f8f38354d03ad65ff9d232559f0'; // Your PAT (Personal Access Token) can be found in the portal under Authentification
+const APP_ID = 'my-first-application'; // Change these to whatever model and image input you want to use
 const MODEL_ID = 'face-detection';
 
 function App() {
   
+  // state handling
   const [input, setInput] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [route, setRoute] = useState("signin");
   const [box, setBox] = useState({});
-  const [signedIn, setSignedIn] = useState(false);
+  const [signedIn, setSignedIn] = useState(false); 
 
-  const getFaceLocation = (boxData) => {
+  const getFaceLocation = (boxData) => { // gets the face location retreived from the clarifai API
     console.log(JSON.parse(boxData, null, 2).outputs[0].data.regions[0].region_info.bounding_box);
     const clarifaiFace = JSON.parse(boxData, null, 2).outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputttimage');
@@ -30,7 +31,7 @@ function App() {
 
     console.log(`W:${width} H:${height}`);
 
-    return {
+    return { // returns the top left right bottom positions needed to display the box as an object
       topRow: (clarifaiFace.top_row * height),
       leftCol: (clarifaiFace.left_col * width),
       rightCol: (width - (clarifaiFace.right_col * width)),
@@ -39,36 +40,29 @@ function App() {
 
   }
 
-  const displayFaceBox = (box) => {
+  const displayFaceBox = (box) => { // sets the box 
     console.log(box.leftCol + " L");
     console.log(box.topRow + " T");
     console.log(box.rightCol + " R");
     console.log(box.bottomRow + " B");
     setBox(box);
-    // this.setState({box: box})
   }
   
   const handleInputChange = (event) => {
-    // this.setState({input: event.target.value});
     setInput(event.target.value);
   }
 
   const isSignedOut = (event) => {
     setRoute(event);
     setSignedIn(false);
-    // this.setState({route: event});
-    // this.setState({signedIn: false});
   }
 
   const routeChange = (event) => {
     setRoute(event);
     setSignedIn(true);
-    // this.setState({route: event});
-    // this.setState({signedIn: true});
   }
 
-  const onButtonSubmit = (event) => {
-    // this.setState({imgUrl: input});
+  const onButtonSubmit = (event) => { // submits url to clairfai face detection model
     setImgUrl(input);
     
     console.log("clicked");
