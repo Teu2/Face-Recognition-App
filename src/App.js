@@ -1,33 +1,27 @@
 import './App.css'
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
 import Navigation from './components/Navigation/Navigation'
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm'
 import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignIn/SignUp'
-import ParticlesBg from 'particles-bg'
 import Particles from './components/Particles/Particles'
-import Clarifai from 'clarifai'
 
+// didn't include tokens for security reasons, but you can replace them if you want
 const USER_ID = ''; 
 const PAT = ''; // Your PAT (Personal Access Token) can be found in the portal under Authentification
 const APP_ID = ''; // Change these to whatever model and image input you want to use
 const MODEL_ID = 'face-detection';
-const MODEL_VERSION_ID = 'aa7f35c01e0642fda5cf400f543e7c40';    
 
-class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      input: '',
-      imgUrl: '',
-      box: {},
-      route: 'signin', // keeps track of where the user is
-      signedIn: false
-    }
-  }
+function App() {
+  
+  const [input, setInput] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+  const [route, setRoute] = useState("signin");
+  const [box, setBox] = useState({});
+  const [signedIn, setSignedIn] = useState(false);
 
-  getFaceLocation = (boxData) => {
+  const getFaceLocation = (boxData) => {
     console.log(JSON.parse(boxData, null, 2).outputs[0].data.regions[0].region_info.bounding_box);
     const clarifaiFace = JSON.parse(boxData, null, 2).outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputttimage');
@@ -45,30 +39,37 @@ class App extends Component {
 
   }
 
-  displayFaceBox = (box) => {
+  const displayFaceBox = (box) => {
     console.log(box.leftCol + " L");
     console.log(box.topRow + " T");
     console.log(box.rightCol + " R");
     console.log(box.bottomRow + " B");
-    this.setState({box: box})
+    setBox(box);
+    // this.setState({box: box})
   }
   
-  onInputChange = (event) => {
-    this.setState({input: event.target.value});
+  const handleInputChange = (event) => {
+    // this.setState({input: event.target.value});
+    setInput(event.target.value);
   }
 
-  isSignedOut = (event) => {
-    this.setState({route: event});
-    this.setState({signedIn: false});
+  const isSignedOut = (event) => {
+    setRoute(event);
+    setSignedIn(false);
+    // this.setState({route: event});
+    // this.setState({signedIn: false});
   }
 
-  routeChange = (event) => {
-    this.setState({route: event});
-    this.setState({signedIn: true});
+  const routeChange = (event) => {
+    setRoute(event);
+    setSignedIn(true);
+    // this.setState({route: event});
+    // this.setState({signedIn: true});
   }
 
-  onBtnSubmit = (event) => {
-    this.setState({imgUrl: this.state.input});
+  const onButtonSubmit = (event) => {
+    // this.setState({imgUrl: input});
+    setImgUrl(input);
     
     console.log("clicked");
       const raw = JSON.stringify({
@@ -80,7 +81,7 @@ class App extends Component {
             {
                 "data": {
                     "image": {
-                        "url": this.state.input
+                        "url": input
                     }
                 }
             }
@@ -98,25 +99,24 @@ class App extends Component {
 
     fetch(`https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`, requestOptions)
         .then(response => response.text())
-        .then(result => this.displayFaceBox(this.getFaceLocation(result)))
+        .then(result => displayFaceBox(getFaceLocation(result)))
         .catch(error => console.log('error', error));
   }
 
-  render(){
-    return (
-      <div className="App">
-        <Navigation onSignOut={this.isSignedOut} isSignedIn={this.state.signedIn}/>
-        {this.state.route === 'home' 
-          ? <div> 
-              <ImageLinkForm onInputChange={this.onInputChange} onBtnSubmit={this.onBtnSubmit} />
-              <FaceRecognition imageUrl={this.state.imgUrl} box={this.state.box} />
-            </div>
-          : (this.state.route === 'signin' ? <SignIn asdad={this.routeChange} /> : <SignUp asdad={this.routeChange}/>)
-        }
-        <Particles/>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Navigation onSignOut={isSignedOut} isSignedIn={signedIn}/>
+      {route === 'home' 
+        ? <div> 
+            <ImageLinkForm onInputChange={handleInputChange} onBtnSubmit={onButtonSubmit} />
+            <FaceRecognition imageUrl={imgUrl} box={box} />
+          </div>
+        : (route === 'signin' ? <SignIn asdad={routeChange} /> : <SignUp asdad={routeChange}/>)
+      }
+      <Particles/>
+    </div>
+  );
+
 }
 
 export default App;
