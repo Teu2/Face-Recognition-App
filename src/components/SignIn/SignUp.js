@@ -1,9 +1,10 @@
 import React from "react";
 import './SignIn.css';
+import 'aos/dist/aos.css'
 
 const SignUp = ({asdad}) => {
     return (
-        <div className='center parent-div'>
+        <div className='center parent-div' data-aos="fade-right">
             <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 sign-in-form">
             <main className="pa4 black-80">
                 <form className="measure">

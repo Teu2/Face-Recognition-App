@@ -7,11 +7,11 @@ import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignIn/SignUp'
 import Particles from './components/Particles/Particles'
 
-
-const USER_ID = 'teud100'; 
-const PAT = '4c000f8f38354d03ad65ff9d232559f0'; // Your PAT (Personal Access Token) can be found in the portal under Authentification
-const APP_ID = 'my-first-application'; // Change these to whatever model and image input you want to use
-const MODEL_ID = 'face-detection';
+// tokens not included for privacy reasons
+const USER_ID = ''; 
+const PAT = ''; // Your PAT (Personal Access Token) can be found in the portal under Authentification
+const APP_ID = ''; // Change these to whatever model and image input you want to use
+const MODEL_ID = '';
 
 function App() {
   
@@ -75,7 +75,7 @@ function App() {
             {
                 "data": {
                     "image": {
-                        "url": input
+                        "url": input // image url
                     }
                 }
             }
